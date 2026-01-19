@@ -1,4 +1,4 @@
-import { openai } from "@ai-sdk/openai";
+import { google } from "@ai-sdk/google";
 import { generateObject } from "ai";
 import { z } from "zod";
 
@@ -51,7 +51,7 @@ export async function POST(req: Request) {
     }
 
     const result = await generateObject({
-      model: openai("gpt-4o-mini"),
+      model: google("gemini-2.0-flash"),
       schema: responseSchema,
       system: systemPrompt,
       prompt: `Concept: "${term}"
